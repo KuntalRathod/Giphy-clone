@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { HiEllipsisVertical } from "react-icons/hi2"
+import { HiEllipsisVertical, HiMiniBars3BottomRight } from "react-icons/hi2"
 import { Link } from "react-router-dom"
 
 const Header = () => {
@@ -17,17 +17,44 @@ const Header = () => {
         </Link>
 
         {/* Render Categories */}
+        <div className="font-bold text-md flex gap-1 items-center">
+          <Link className="px-1 py-1 hover:gradient border-b-4 hidden lg:block">
+            Reactions
+          </Link>
+          <button onClick={() => setShowCategories(!showCategories)}>
+            <HiEllipsisVertical
+              size={35}
+              className={`py-0.5 hover:gradient ${showCategories ? "gradient" : ""} border-b-4 hidden lg:block`}
+            />
+          </button>
+          <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
+            <Link to="/favourites"> Favourite GIFs</Link>
+          </div>
 
-        <Link className="px-1 py-1 hover:gradient border-b-4 hidden lg:block">
-          Reactions
-        </Link>
-        <button onClick={() => setShowCategories(!showCategories)}>
-          <HiEllipsisVertical
-            size={35}
-            className={`py-0.5 hover:gradient ${showCategories ? "gradient" : ""} border-b-4 hidden lg:block`}
-          />
-        </button>
+          <button>
+            <HiMiniBars3BottomRight
+              size={35}
+              className="text-sky-400 block lg:hidden"
+            />
+          </button>
+        </div>
+
+        {showCategories && (
+          <div className="absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20">
+            <span>Categories</span>
+            <hr />
+            <div>
+              <Link className="font-bold">Reactions</Link>
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* search */}
+
+      
+
+
     </nav>
   )
 }
