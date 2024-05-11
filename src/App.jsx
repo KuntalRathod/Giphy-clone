@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import "./App.css"
 import AppLayout from "./layouts/AppLayout"
 
+//pages
 //homepage
 //categories
 //search
