@@ -1,9 +1,15 @@
- import React from 'react'
- 
- const AppLayout = () => {
-   return (
-     <div>AppLayout</div>
-   )
- }
- 
- export default AppLayout
+import React from "react"
+import { Outlet } from "react-router-dom"
+
+const AppLayout = () => {
+  return (
+    <div>
+      {/* header */}
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  )
+}
+
+export default AppLayout

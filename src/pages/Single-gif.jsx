@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react"
 
-const Single-gif = () => {
-  return (
-    <div>Single-gif</div>
-  )
+const GifPage = () => {
+  return <div>Single-gif</div>
 }
 
-export default Single-gif
+export default GifPage

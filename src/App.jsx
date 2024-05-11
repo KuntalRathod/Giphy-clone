@@ -1,6 +1,11 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import "./App.css"
 import AppLayout from "./layouts/AppLayout"
+import Home from "./pages/Home"
+import Category from "./pages/Category"
+import SearchPage from "./pages/Search"
+import GifPage from "./pages/Single-gif"
+import Favourites from "./pages/Favourites"
 
 //pages
 //homepage
@@ -16,7 +21,7 @@ import AppLayout from "./layouts/AppLayout"
 //       <Route path="about" element={<About />} />
 //       <Route path="contact" element={<Contact />} />
 //       <Route path="user/:userid" element={<User />} />
-      
+
 //       <Route loader={githubInfoLoader}
 //         path="github"
 //         element={<Github />}
@@ -28,22 +33,33 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
-        path: '/',
-        element: <Home />
-      }
-    ]
-    
-  }
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/:category",
+        element: <Category />,
+      },
+      {
+        path: "/search/:query",
+        element: <SearchPage />,
+      },
+      {
+        path: "/:type/:slug",
+        element: <GifPage />,
+      },
+      {
+        path: "/favourites",
+        element: <Favourites />,
+      },
+    ],
+  },
 ])
-
-
 
 function App() {
   return (
     <>
-      <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
+      <RouterProvider router={router} />
     </>
   )
 }
