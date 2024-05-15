@@ -8,6 +8,23 @@ const GifProvider = ({ children }) => {
   const [filter, setFilter] = useState("gifs")
   const [favourites, setFavourites] = useState([])
 
+   const addToFavorites = (id) => {
+     console.log(id)
+     if (favourites.includes(id)) {
+       // If the item is already in favorites, remove it
+       const updatedFavourites = favourites.filter((itemId) => itemId !== id)
+       localStorage.setItem("favoriteGIFs", JSON.stringify(updatedFavourites))
+       setFavourites(updatedFavourites)
+     } else {
+       // If the item is not in favorites, add it
+       const updatedFavourites = [...favourites]
+       updatedFavourites.push(id)
+       localStorage.setItem("favoriteGIFs", JSON.stringify(updatedFavourites))
+       setFavourites(updatedFavourites)
+     }
+   }
+
+
   const giphy = new GiphyFetch(import.meta.env.VITE_GIPHY_KEY)
 
   return (
