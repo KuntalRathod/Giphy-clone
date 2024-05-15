@@ -26,6 +26,7 @@ const SingleGifPage = () => {
 
   const shareGif = () => {
     //
+
   }
 
   const EmbedGif = () => {
