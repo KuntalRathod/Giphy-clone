@@ -147,12 +147,12 @@ const SingleGifPage = () => {
               onClick={() => addToFavorites(gif.id)}
               className="flex gap-5 items-center font-bold text-lg"
             >
-              <HiMiniHeart
+              {/* <HiMiniHeart
                 size={30}
                 className={`${
                   favorites.includes(gif.id) ? "text-red-500" : ""
                 }`}
-              />
+              /> */}
               Favorite
             </button>
             <button
