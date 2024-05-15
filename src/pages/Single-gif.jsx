@@ -22,7 +22,7 @@ const SingleGifPage = () => {
   const [relatedGifs, setRelatedGifs] = useState([])
   const [readMore, setReadMore] = useState(false)
 
-  const { giphy, addToFavorites, favourites } = GifState()
+  const { giphy, addToFavourites, favourites } = GifState()
 
   const shareGif = () => {
     //
@@ -144,7 +144,7 @@ const SingleGifPage = () => {
           {/* Favourites / embedded / share */}
           <div className="hidden sm:flex flex-col gap-5 mt-6">
             <button
-              onClick={() => addToFavorites(gif.id)}
+              onClick={() => addToFavourites(gif.id)}
               className="flex gap-5 items-center font-bold text-lg"
             >
               <HiMiniHeart
