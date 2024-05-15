@@ -4,7 +4,7 @@ import AppLayout from "./layouts/AppLayout"
 import Home from "./pages/Home"
 import Category from "./pages/Category"
 import SearchPage from "./pages/Search"
-import GifPage from "./pages/Single-gif"
+import SingleGifPage from "./pages/Single-gif"
 import Favourites from "./pages/Favourites"
 import GifProvider from "./context/GifContext"
 
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:type/:slug",
-        element: <GifPage />,
+        element: <SingleGifPage />,
       },
       {
         path: "/favourites",
