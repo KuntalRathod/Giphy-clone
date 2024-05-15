@@ -39,7 +39,7 @@ const SearchPage = () => {
         </div>
       ) : (
         <span>
-          No GIFs found for {query}. Try searching for Stickers instead?
+          No GIFs found for {query}. Try searching for Stickers Or Text instead?
         </span>
       )}
     </div>
