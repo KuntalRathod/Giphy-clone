@@ -11,6 +11,8 @@ import FollowOn from "../components/FollowOn"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { FaPaperPlane } from "react-icons/fa6"
 import { IoCodeSharp } from "react-icons/io5"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const contentType = ["gifs", "stickers", "texts"]
 
@@ -25,12 +27,23 @@ const SingleGifPage = () => {
   const { giphy, addToFavourites, favourites } = GifState()
 
   const shareGif = () => {
-    //
+    const directGifUrl = gif?.images?.original?.url
+    console.log(directGifUrl)
 
+    if (directGifUrl) {
+      navigator.clipboard
+        .writeText(directGifUrl)
+        .then(() => toast.success("Direct GIF URL copied to clipboard!"))
+        .catch((err) => console.error("Failed to copy direct GIF URL: ", err))
+    }
   }
 
   const EmbedGif = () => {
-    //
+    const embedCode = `<img src="${gif?.url}" alt="GIF" />`
+    navigator.clipboard
+      .writeText(embedCode)
+      .then(() => toast.success("Embed code copied to clipboard!"))
+      .catch((err) => console.error("Failed to copy embed code: ", err))
   }
 
   const fetchGif = async () => {
@@ -56,6 +69,7 @@ const SingleGifPage = () => {
     <div className="grid grid-cols-4 my-10 gap-4">
       {/* sm: bigger than smaller screens */}
       <div className="hidden sm:block ">
+        <ToastContainer />
         {/* Sidebar */}
         {gif?.user && (
           <>
